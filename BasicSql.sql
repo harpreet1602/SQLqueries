@@ -1,3 +1,56 @@
+-- Database: Practice Sql
+
+-- DROP DATABASE "Practice Sql";
+
+CREATE DATABASE "Practice Sql"
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_India.1252'
+    LC_CTYPE = 'English_India.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+	
+-- 	1st class
+create table employee(
+	ecode int primary key,
+	name char(20),
+	salary int default 9000,
+	prevsalary int check(prevsalary>5000)
+);	
+
+drop table employee;
+select * from employee;
+insert into employee values(1,'Harpreet Singh',100000,5001);
+insert into employee values(null,'Charandeep Singh',120000);
+insert into employee values(1,'Harpreet Singh'),
+(2,'Charandeep Singh'),
+(3,'Harjas Singh');
+
+
+create table stu (
+	name varchar(20) not null,
+	id int unique not null
+);
+
+select * from stu;
+insert into stu(id) values(1);
+insert into stu(id,name) values(2,'Happy');
+insert into stu(name) values('Happy1');
+
+drop table stu;
+
+create table emp(name varchar,ecode varchar);
+select * from emp;
+insert into emp values('a',1),('b',2);
+
+create table emp_bkp(name varchar,ecode varchar);
+insert into emp_bkp(select * from emp);
+select * from emp_bkp;
+
+
+-- 2nd class
+
 --create table
 create table student(name varchar(20));
 --display table
@@ -60,4 +113,8 @@ select * from schools;
 insert into stu values('Harpreet','2000-02-02',1,10);
 
 
+
+-- 3rd class
+
+-- 4th class
 
